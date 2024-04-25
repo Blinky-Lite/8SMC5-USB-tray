@@ -101,5 +101,441 @@
                 "py": 0
             }
         }
+    },
+    {
+        "id": "f42e48bf7ff6d0dd",
+        "type": "serial-port",
+        "name": "MotorController0",
+        "serialport": "/dev/ttyACM0",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "2",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "bin",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "400"
+    },
+    {
+        "id": "68ce56881633a50a",
+        "type": "serial-port",
+        "name": "MotorController1",
+        "serialport": "/dev/ttyACM1",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "2",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "bin",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "400"
+    },
+    {
+        "id": "352f8ee424dbed83",
+        "type": "debug",
+        "z": "7cbe116050851432",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "be887219ab4c97ca",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "gpos",
+        "func": "var bufsize = 4;\nvar buffer = new ArrayBuffer(bufsize);\nvar settingsView = new DataView(buffer);\nlet str = \"gpos\"\nsettingsView.setUint8(0, Number(str.charCodeAt(0))); \nsettingsView.setUint8(1, Number(str.charCodeAt(1))); \nsettingsView.setUint8(2, Number(str.charCodeAt(2))); \nsettingsView.setUint8(3, Number(str.charCodeAt(3))); \nreturn {topic:'setting',payload:Buffer.from(buffer)};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 760,
+        "wires": [
+            [
+                "33ebbac8759b2123"
+            ]
+        ]
+    },
+    {
+        "id": "d97d772ece2911c1",
+        "type": "inject",
+        "z": "7cbe116050851432",
+        "name": "GPOS",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 760,
+        "wires": [
+            [
+                "be887219ab4c97ca"
+            ]
+        ]
+    },
+    {
+        "id": "33ebbac8759b2123",
+        "type": "serial request",
+        "z": "7cbe116050851432",
+        "name": "MotorController0",
+        "serial": "f42e48bf7ff6d0dd",
+        "x": 550,
+        "y": 760,
+        "wires": [
+            [
+                "6a251f0b44bcf707"
+            ]
+        ]
+    },
+    {
+        "id": "6a251f0b44bcf707",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "check gpos",
+        "func": "let command = String.fromCharCode(msg.payload[0], msg.payload[1], msg.payload[2], msg.payload[3]);\nlet stateView  = new DataView(new ArrayBuffer(14));\nlet response = {cmd:command};\nif (command != \"gpos\")\n{\n    response['pos'] = 0;\n    response['uPos'] = 0;\n    response['encPos'] = 0;\n    response['chkSum'] = false;\n    return {topic:'gpos',payload:response};\n}\nfor (let ii = 0; ii < 14; ++ii)\n{\n    stateView.setUint8(ii,msg.payload[ii + 4]);\n}\nresponse['pos'] = stateView.getInt32(0,true);\nresponse['uPos'] = stateView.getInt16(4,true);\nresponse['encPos'] = stateView.getBigInt64(6,true);\nresponse['chkSum'] = true;\n\nlet crcCheckView  = new DataView(new ArrayBuffer(2));\nfor (let ii = 0; ii < 2; ++ii)\n{\n    crcCheckView.setUint8(ii,msg.payload[ii + 24]);\n}\nlet crcCheckSent = crcCheckView.getUint16(0,true);\n\nlet rawData = [];\nfor (let ii = 0; ii < 20; ++ii) rawData.push(msg.payload[(ii + 4)]);\nlet crcCheckReceive = crcCalc(rawData);\nif (crcCheckReceive != crcCheckSent) response['chkSum'] = false;\n\nreturn {topic:'gpos',payload:response};\n\nfunction crcCalc(pbuf)\n{\n    let n = pbuf.length;\n    let crc = 0xffff;\n    for(let i = 0; i < n; i++)\n    {\n        crc = crc ^ pbuf[i];\n        for(let j = 0; j < 8; j++)\n        {\n            let a = crc;\n            let carry_flag = a & 0x0001;\n            crc = crc >> 1;\n            if ( carry_flag == 1 ) crc = crc ^ 0xa001;\n        }\n    }\n    return crc;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 760,
+        "wires": [
+            [
+                "352f8ee424dbed83"
+            ]
+        ]
+    },
+    {
+        "id": "fb14b16ec4b21060",
+        "type": "debug",
+        "z": "7cbe116050851432",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "7b2ad40b578990c4",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "movr",
+        "func": "var bufsize = 18;\nvar buffer = new ArrayBuffer(bufsize);\nvar settingsView = new DataView(buffer);\nlet str = \"movr\"\nsettingsView.setUint8(0, Number(str.charCodeAt(0))); \nsettingsView.setUint8(1, Number(str.charCodeAt(1))); \nsettingsView.setUint8(2, Number(str.charCodeAt(2))); \nsettingsView.setUint8(3, Number(str.charCodeAt(3))); \nsettingsView.setInt32(4, msg.payload.pos, true); \nsettingsView.setInt16(8, msg.payload.uPos, true); \nsettingsView.setUint8(10, 0);\nsettingsView.setUint8(11, 0);\nsettingsView.setUint8(12, 0);\nsettingsView.setUint8(13, 0);\nsettingsView.setUint8(14, 0);\nsettingsView.setUint8(15, 0);\nsettingsView.setUint8(16, 0);\nsettingsView.setUint8(17, 0);\nlet allData = Buffer.from(buffer);\nlet valueData = [];\nfor (let ii = 0; ii < 12; ++ii) valueData.push(allData[ii + 4]);\nlet crcVal = crcCalc(valueData);\nsettingsView.setUint16(16, crcVal, true);\nreturn {topic:'setting',payload:Buffer.from(buffer)};\n\n\nfunction crcCalc(pbuf)\n{\n    let n = pbuf.length;\n    let crc = 0xffff;\n    for(let i = 0; i < n; i++)\n    {\n        crc = crc ^ pbuf[i];\n        for(let j = 0; j < 8; j++)\n        {\n            let a = crc;\n            let carry_flag = a & 0x0001;\n            crc = crc >> 1;\n            if ( carry_flag == 1 ) crc = crc ^ 0xa001;\n        }\n    }\n    return crc;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 840,
+        "wires": [
+            [
+                "5de3454c8ee00890"
+            ]
+        ]
+    },
+    {
+        "id": "5de3454c8ee00890",
+        "type": "serial request",
+        "z": "7cbe116050851432",
+        "name": "MotorController0",
+        "serial": "f42e48bf7ff6d0dd",
+        "x": 550,
+        "y": 840,
+        "wires": [
+            [
+                "8a3a4436986a4a98"
+            ]
+        ]
+    },
+    {
+        "id": "8a3a4436986a4a98",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Check movr",
+        "func": "let command = String.fromCharCode(msg.payload[0], msg.payload[1], msg.payload[2], msg.payload[3]);\nreturn {topic: \"movr\", payload:command};\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 840,
+        "wires": [
+            [
+                "fb14b16ec4b21060"
+            ]
+        ]
+    },
+    {
+        "id": "1dacfc7f7623b388",
+        "type": "inject",
+        "z": "7cbe116050851432",
+        "name": "MOVR test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "movr",
+        "payload": "{\"pos\":0,\"uPos\":-146}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 840,
+        "wires": [
+            [
+                "7b2ad40b578990c4"
+            ]
+        ]
+    },
+    {
+        "id": "77650d35dccc5d22",
+        "type": "debug",
+        "z": "7cbe116050851432",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "19e889b5e4ac2689",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "gpos",
+        "func": "var bufsize = 4;\nvar buffer = new ArrayBuffer(bufsize);\nvar settingsView = new DataView(buffer);\nlet str = \"gpos\"\nsettingsView.setUint8(0, Number(str.charCodeAt(0))); \nsettingsView.setUint8(1, Number(str.charCodeAt(1))); \nsettingsView.setUint8(2, Number(str.charCodeAt(2))); \nsettingsView.setUint8(3, Number(str.charCodeAt(3))); \nreturn {topic:'setting',payload:Buffer.from(buffer)};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 920,
+        "wires": [
+            [
+                "295ddb941aa16d89"
+            ]
+        ]
+    },
+    {
+        "id": "754719b29d133723",
+        "type": "inject",
+        "z": "7cbe116050851432",
+        "name": "GPOS",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 920,
+        "wires": [
+            [
+                "19e889b5e4ac2689"
+            ]
+        ]
+    },
+    {
+        "id": "295ddb941aa16d89",
+        "type": "serial request",
+        "z": "7cbe116050851432",
+        "name": "MotorController1",
+        "serial": "68ce56881633a50a",
+        "x": 550,
+        "y": 920,
+        "wires": [
+            [
+                "d4ea22b053e719be"
+            ]
+        ]
+    },
+    {
+        "id": "d4ea22b053e719be",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "check gpos",
+        "func": "let command = String.fromCharCode(msg.payload[0], msg.payload[1], msg.payload[2], msg.payload[3]);\nlet stateView  = new DataView(new ArrayBuffer(14));\nlet response = {cmd:command};\nif (command != \"gpos\")\n{\n    response['pos'] = 0;\n    response['uPos'] = 0;\n    response['encPos'] = 0;\n    response['chkSum'] = false;\n    return {topic:'gpos',payload:response};\n}\nfor (let ii = 0; ii < 14; ++ii)\n{\n    stateView.setUint8(ii,msg.payload[ii + 4]);\n}\nresponse['pos'] = stateView.getInt32(0,true);\nresponse['uPos'] = stateView.getInt16(4,true);\nresponse['encPos'] = stateView.getBigInt64(6,true);\nresponse['chkSum'] = true;\n\nlet crcCheckView  = new DataView(new ArrayBuffer(2));\nfor (let ii = 0; ii < 2; ++ii)\n{\n    crcCheckView.setUint8(ii,msg.payload[ii + 24]);\n}\nlet crcCheckSent = crcCheckView.getUint16(0,true);\n\nlet rawData = [];\nfor (let ii = 0; ii < 20; ++ii) rawData.push(msg.payload[(ii + 4)]);\nlet crcCheckReceive = crcCalc(rawData);\nif (crcCheckReceive != crcCheckSent) response['chkSum'] = false;\n\nreturn {topic:'gpos',payload:response};\n\nfunction crcCalc(pbuf)\n{\n    let n = pbuf.length;\n    let crc = 0xffff;\n    for(let i = 0; i < n; i++)\n    {\n        crc = crc ^ pbuf[i];\n        for(let j = 0; j < 8; j++)\n        {\n            let a = crc;\n            let carry_flag = a & 0x0001;\n            crc = crc >> 1;\n            if ( carry_flag == 1 ) crc = crc ^ 0xa001;\n        }\n    }\n    return crc;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 920,
+        "wires": [
+            [
+                "77650d35dccc5d22"
+            ]
+        ]
+    },
+    {
+        "id": "11f09c9a7b102063",
+        "type": "debug",
+        "z": "7cbe116050851432",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "2cf79a4230085b27",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "movr",
+        "func": "var bufsize = 18;\nvar buffer = new ArrayBuffer(bufsize);\nvar settingsView = new DataView(buffer);\nlet str = \"movr\"\nsettingsView.setUint8(0, Number(str.charCodeAt(0))); \nsettingsView.setUint8(1, Number(str.charCodeAt(1))); \nsettingsView.setUint8(2, Number(str.charCodeAt(2))); \nsettingsView.setUint8(3, Number(str.charCodeAt(3))); \nsettingsView.setInt32(4, msg.payload.pos, true); \nsettingsView.setInt16(8, msg.payload.uPos, true); \nsettingsView.setUint8(10, 0);\nsettingsView.setUint8(11, 0);\nsettingsView.setUint8(12, 0);\nsettingsView.setUint8(13, 0);\nsettingsView.setUint8(14, 0);\nsettingsView.setUint8(15, 0);\nsettingsView.setUint8(16, 0);\nsettingsView.setUint8(17, 0);\nlet allData = Buffer.from(buffer);\nlet valueData = [];\nfor (let ii = 0; ii < 12; ++ii) valueData.push(allData[ii + 4]);\nlet crcVal = crcCalc(valueData);\nsettingsView.setUint16(16, crcVal, true);\nreturn {topic:'setting',payload:Buffer.from(buffer)};\n\n\nfunction crcCalc(pbuf)\n{\n    let n = pbuf.length;\n    let crc = 0xffff;\n    for(let i = 0; i < n; i++)\n    {\n        crc = crc ^ pbuf[i];\n        for(let j = 0; j < 8; j++)\n        {\n            let a = crc;\n            let carry_flag = a & 0x0001;\n            crc = crc >> 1;\n            if ( carry_flag == 1 ) crc = crc ^ 0xa001;\n        }\n    }\n    return crc;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 1000,
+        "wires": [
+            [
+                "6b972c227ace183f"
+            ]
+        ]
+    },
+    {
+        "id": "515889d41373e914",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Check movr",
+        "func": "let command = String.fromCharCode(msg.payload[0], msg.payload[1], msg.payload[2], msg.payload[3]);\nreturn {topic: \"movr\", payload:command};\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 1000,
+        "wires": [
+            [
+                "11f09c9a7b102063"
+            ]
+        ]
+    },
+    {
+        "id": "52a4cd81362d9030",
+        "type": "inject",
+        "z": "7cbe116050851432",
+        "name": "MOVR test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "movr",
+        "payload": "{\"pos\":0,\"uPos\":-5}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 1000,
+        "wires": [
+            [
+                "2cf79a4230085b27"
+            ]
+        ]
+    },
+    {
+        "id": "6b972c227ace183f",
+        "type": "serial request",
+        "z": "7cbe116050851432",
+        "name": "MotorController1",
+        "serial": "68ce56881633a50a",
+        "x": 550,
+        "y": 1000,
+        "wires": [
+            [
+                "515889d41373e914"
+            ]
+        ]
     }
 ]
