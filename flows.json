@@ -143,6 +143,34 @@
         "responsetimeout": "400"
     },
     {
+        "id": "79250bf3.365cc4",
+        "type": "mqtt-broker",
+        "name": "MQTT Broker",
+        "broker": "$(MQTTSERVERIP)",
+        "port": "1883",
+        "clientid": "$(MQTTCLIENTID)",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
         "id": "352f8ee424dbed83",
         "type": "debug",
         "z": "7cbe116050851432",
@@ -154,8 +182,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
-        "y": 760,
+        "x": 980,
+        "y": 1280,
         "wires": []
     },
     {
@@ -170,8 +198,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
-        "y": 760,
+        "x": 310,
+        "y": 1280,
         "wires": [
             [
                 "33ebbac8759b2123"
@@ -199,8 +227,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 170,
-        "y": 760,
+        "x": 150,
+        "y": 1280,
         "wires": [
             [
                 "be887219ab4c97ca"
@@ -213,8 +241,8 @@
         "z": "7cbe116050851432",
         "name": "MotorController0",
         "serial": "f42e48bf7ff6d0dd",
-        "x": 550,
-        "y": 760,
+        "x": 530,
+        "y": 1280,
         "wires": [
             [
                 "6a251f0b44bcf707"
@@ -233,8 +261,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 760,
+        "x": 710,
+        "y": 1280,
         "wires": [
             [
                 "352f8ee424dbed83"
@@ -253,8 +281,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
-        "y": 840,
+        "x": 980,
+        "y": 1340,
         "wires": []
     },
     {
@@ -269,8 +297,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
-        "y": 840,
+        "x": 310,
+        "y": 1340,
         "wires": [
             [
                 "5de3454c8ee00890"
@@ -283,8 +311,8 @@
         "z": "7cbe116050851432",
         "name": "MotorController0",
         "serial": "f42e48bf7ff6d0dd",
-        "x": 550,
-        "y": 840,
+        "x": 530,
+        "y": 1340,
         "wires": [
             [
                 "8a3a4436986a4a98"
@@ -303,8 +331,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 840,
+        "x": 710,
+        "y": 1340,
         "wires": [
             [
                 "fb14b16ec4b21060"
@@ -330,10 +358,10 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "movr",
-        "payload": "{\"pos\":0,\"uPos\":-146}",
+        "payload": "{\"pos\":3272,\"uPos\":193}",
         "payloadType": "json",
-        "x": 180,
-        "y": 840,
+        "x": 160,
+        "y": 1340,
         "wires": [
             [
                 "7b2ad40b578990c4"
@@ -352,8 +380,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
-        "y": 920,
+        "x": 980,
+        "y": 1580,
         "wires": []
     },
     {
@@ -368,8 +396,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
-        "y": 920,
+        "x": 310,
+        "y": 1580,
         "wires": [
             [
                 "295ddb941aa16d89"
@@ -397,8 +425,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 170,
-        "y": 920,
+        "x": 150,
+        "y": 1580,
         "wires": [
             [
                 "19e889b5e4ac2689"
@@ -411,8 +439,8 @@
         "z": "7cbe116050851432",
         "name": "MotorController1",
         "serial": "68ce56881633a50a",
-        "x": 550,
-        "y": 920,
+        "x": 530,
+        "y": 1580,
         "wires": [
             [
                 "d4ea22b053e719be"
@@ -431,8 +459,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 920,
+        "x": 710,
+        "y": 1580,
         "wires": [
             [
                 "77650d35dccc5d22"
@@ -451,8 +479,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
-        "y": 1000,
+        "x": 980,
+        "y": 1640,
         "wires": []
     },
     {
@@ -467,8 +495,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
-        "y": 1000,
+        "x": 310,
+        "y": 1640,
         "wires": [
             [
                 "6b972c227ace183f"
@@ -487,8 +515,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 1000,
+        "x": 710,
+        "y": 1640,
         "wires": [
             [
                 "11f09c9a7b102063"
@@ -514,10 +542,10 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "movr",
-        "payload": "{\"pos\":0,\"uPos\":-5}",
+        "payload": "{\"pos\":2654,\"uPos\":130}",
         "payloadType": "json",
-        "x": 180,
-        "y": 1000,
+        "x": 160,
+        "y": 1640,
         "wires": [
             [
                 "2cf79a4230085b27"
@@ -530,11 +558,1318 @@
         "z": "7cbe116050851432",
         "name": "MotorController1",
         "serial": "68ce56881633a50a",
-        "x": 550,
-        "y": 1000,
+        "x": 530,
+        "y": 1640,
         "wires": [
             [
                 "515889d41373e914"
+            ]
+        ]
+    },
+    {
+        "id": "08ee1fafdc4c41fc",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Save tray config in Memory",
+        "func": "let tray = msg.payload;\nflow.set('tray', msg.payload);\ntray.trayControl.value = 0;\ntray.watchdog.value = 0;\ntray.movr0.value = 0;\ntray.movr1.value = 0;\ntray.zero0.value = 0;\ntray.zero1.value = 0;\nreturn {topic: 'setting', payload:{'cube':'trayControl', value:tray.trayControl.value}};\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 400,
+        "wires": [
+            [
+                "e6028ca70b6042d8"
+            ]
+        ]
+    },
+    {
+        "id": "6a3a1d38244800c1",
+        "type": "inject",
+        "z": "7cbe116050851432",
+        "name": "initFlow",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "initFlow",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "33783d686e432aad"
+            ]
+        ]
+    },
+    {
+        "id": "33783d686e432aad",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Init flow Variables",
+        "func": "var trayProps = {\n    box         :   env.get(\"BOX\"),\n    type        :   env.get(\"TRAYTYPE\"),\n    name        :   env.get(\"TRAYNAME\"),\n};\nflow.set('trayProps',trayProps);\nflow.set('settingInProgress', false);\nflow.set('tray', null);\nreturn {topic: \"getTrayProps\", payload: true};  \n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 100,
+        "wires": [
+            [
+                "a1ac9e631b1c38ed",
+                "4d6715a3cd96c25c"
+            ]
+        ]
+    },
+    {
+        "id": "b15d260b572e07f4",
+        "type": "json",
+        "z": "7cbe116050851432",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 330,
+        "y": 300,
+        "wires": [
+            [
+                "8fe938b67af54824"
+            ]
+        ]
+    },
+    {
+        "id": "ffa001cd11b3750b",
+        "type": "switch",
+        "z": "7cbe116050851432",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "setting",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ping",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "config",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "echo",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 670,
+        "y": 300,
+        "wires": [
+            [
+                "b4c6e205db41e3e1"
+            ],
+            [
+                "4cedc086c72eda01"
+            ],
+            [
+                "b3fee75bbe3e5d31"
+            ],
+            [
+                "08ee1fafdc4c41fc"
+            ]
+        ]
+    },
+    {
+        "id": "8fe938b67af54824",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Filter MQTT",
+        "func": "return {topic:msg.topic.split('/')[5], payload:msg.payload};",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 300,
+        "wires": [
+            [
+                "ffa001cd11b3750b"
+            ]
+        ]
+    },
+    {
+        "id": "719cafd457722095",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Publish tray",
+        "func": "if (!msg.payload) return null;\nvar tray = flow.get('tray');\nif (tray == null) return null;\nlet newMsg = null;\nlet newMsgTopic = flow.get('trayProps').box + '/tray/' + flow.get('trayProps').type + '/' + flow.get('trayProps').name + '/reading';\nswitch( tray.trayControl.value)\n{\n    case 0:\n        newMsg = {topic: newMsgTopic, payload: JSON.stringify(tray)};\n        break;\n    case -1:\n        tray.trayControl.value = 1;\n        newMsg = {topic: newMsgTopic, payload: JSON.stringify(tray)};\n        break;\n    default:\n        break;\n}\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1270,
+        "y": 300,
+        "wires": [
+            [
+                "81831015c91a5f28"
+            ]
+        ]
+    },
+    {
+        "id": "b3fee75bbe3e5d31",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Save config file",
+        "func": "let cubeAlarm = flow.get('tray')[msg.payload.cube].alarm;\ncubeAlarm.limits.lolo = msg.payload.limits.lolo;\ncubeAlarm.limits.low  = msg.payload.limits.low;\ncubeAlarm.limits.high = msg.payload.limits.high;\ncubeAlarm.limits.hihi = msg.payload.limits.hihi;\ncubeAlarm.notify.name = msg.payload.notify.name;\ncubeAlarm.notify.number = msg.payload.notify.number;\nreturn {topic:'newData', payload:true};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 360,
+        "wires": [
+            [
+                "8f466a48843f0a7f"
+            ]
+        ]
+    },
+    {
+        "id": "fa4e7b3501c0222d",
+        "type": "inject",
+        "z": "7cbe116050851432",
+        "name": "Archive clock",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "20",
+        "topic": "archiveClock",
+        "payloadType": "date",
+        "x": 160,
+        "y": 500,
+        "wires": [
+            [
+                "3de75371898f354c"
+            ]
+        ]
+    },
+    {
+        "id": "3de75371898f354c",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Archive Pulse",
+        "func": "var tray = flow.get('tray');\nif (tray == null) return null;\nvar lastArchive = context.get('lastArchive');\nvar now = new Date().getTime();\nif ((now - lastArchive) <= tray.arcPeriod) return null;\ncontext.set('lastArchive', now);\nreturn {topic:'archivePulse', payload:true};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\ncontext.set('lastArchive', new Date().getTime());",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 500,
+        "wires": [
+            [
+                "2eb80f1e7b1fcecd"
+            ]
+        ]
+    },
+    {
+        "id": "eeba3f6f8a8a9a65",
+        "type": "inject",
+        "z": "7cbe116050851432",
+        "name": "Archive now",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "archiveNow",
+        "payloadType": "date",
+        "x": 150,
+        "y": 560,
+        "wires": [
+            [
+                "10a1af89d539377a"
+            ]
+        ]
+    },
+    {
+        "id": "10a1af89d539377a",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Single Archive Pulse",
+        "func": "return {topic:'archivePulse', payload:true};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\ncontext.set('lastArchive', new Date().getTime());",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 560,
+        "wires": [
+            [
+                "2eb80f1e7b1fcecd"
+            ]
+        ]
+    },
+    {
+        "id": "2eb80f1e7b1fcecd",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Publish tray",
+        "func": "if (!msg.payload) return null;\nvar tray = flow.get('tray');\nif (tray == null) return null;\nvar newMsg = \n{\n    topic: flow.get('trayProps').box + '/tray/' + flow.get('trayProps').type + '/' + flow.get('trayProps').name + '/archive',\n    payload: JSON.stringify(tray)\n};\nreturn  newMsg;  \n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 500,
+        "wires": [
+            [
+                "5de5dfce91a29ad6"
+            ]
+        ]
+    },
+    {
+        "id": "b4c6e205db41e3e1",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Create Setting",
+        "func": "let usbSettingMsg = null;\nlet normalSettingMsg = null;\nlet trayControlMessage = null;\nlet tray = flow.get('tray');\nif (tray == null) return [usbSettingMsg,normalSettingMsg,trayControlMessage];\n\nswitch (msg.payload.cube) \n{\n    case 'alias':\n        tray.alias.value = msg.payload.value;\n        normalSettingMsg = { topic: 'newData', payload: true };\n       break;\n    case 'mpos0':\n        tray.mpos0.value = msg.payload.value;\n        normalSettingMsg = { topic: 'newData', payload: true };\n       break;\n    case 'mupos0':\n        tray.mupos0.value = msg.payload.value;\n        normalSettingMsg = { topic: 'newData', payload: true };\n       break;\n    case 'movr0':\n        tray.movr0.value = msg.payload.value;\n        normalSettingMsg = { topic: 'newData', payload: true };\n        usbSettingMsg = {topic:msg.payload.cube, payload: msg.payload.value};\n       break;\n    case 'zero0':\n        tray.zero0.value = msg.payload.value;\n        normalSettingMsg = { topic: 'newData', payload: true };\n        usbSettingMsg = {topic:msg.payload.cube, payload: msg.payload.value};\n       break;\n    case 'mpos1':\n        tray.mpos1.value = msg.payload.value;\n        normalSettingMsg = { topic: 'newData', payload: true };\n       break;\n    case 'mupos1':\n        tray.mupos1.value = msg.payload.value;\n        normalSettingMsg = { topic: 'newData', payload: true };\n       break;\n    case 'movr1':\n        tray.movr1.value = msg.payload.value;\n        normalSettingMsg = { topic: 'newData', payload: true };\n        usbSettingMsg = {topic:msg.payload.cube, payload: msg.payload.value};\n       break;\n    case 'zero1':\n        tray.zero1.value = msg.payload.value;\n        normalSettingMsg = { topic: 'newData', payload: true };\n        usbSettingMsg = {topic:msg.payload.cube, payload: msg.payload.value};\n       break;\n    case 'trayControl':\n        switch(msg.payload.value)\n        {\n            case 0:\n                tray.trayControl.value = 0;\n                break;\n            case 1:\n                tray.trayControl.value = -1;\n                break;\n            case 2:\n                if (tray.trayControl.value > 0)\n                {\n                    tray.trayControl.value = 2;\n                    let trayProps  = flow.get('trayProps');\n                    node.warn(\"Asking for tray from database\");\n                    trayControlMessage =\n                    {\n                        topic: trayProps.box + '/tray/' + trayProps.type + '/' + trayProps.name + '/echo',\n                        payload: JSON.stringify({ topic: trayProps.box + '/tray/' + trayProps.type + '/' + trayProps.name + '/setting/echo' })\n                    };\n                }\n                break;\n            default:\n                tray.trayControl.value = 0;\n                break;\n        }\n        normalSettingMsg = { topic: 'newData', payload: true };\n       break;\n    default:\n        break;\n}\nflow.set('settingInProgress', false);\nreturn [usbSettingMsg,normalSettingMsg,trayControlMessage];\n\n",
+        "outputs": 3,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 240,
+        "wires": [
+            [
+                "8ae00ce2e8187ccd"
+            ],
+            [
+                "71df6ca08438be25"
+            ],
+            [
+                "6c29d83d29cb0f0b"
+            ]
+        ]
+    },
+    {
+        "id": "2c81c8b5ebd1f7e6",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Readings Alarm Scan",
+        "func": "var newData = msg.payload;\nvar tray = flow.get('tray');\nif (tray == null) return null;\nvar alarmFlagReading = scalarAlarmScan(tray, 'reading');\nvar alarmFlagSetting = scalarAlarmScan(tray, 'setting');\nvar newMsg   = null;\nif (newData)\n{\n    newMsg = \n    {\n        topic: 'newData',\n        payload: true\n    }\n}\nreturn newMsg;\n\nfunction getActionArray(tray, type, actionType)\n{\n    var actionArray = [];\n    var keys = Object.keys(tray);\n    for (var ii = 0; ii < keys.length; ++ii)\n    {\n        if (tray[keys[ii]].hasOwnProperty('type'))\n        {\n            if (tray[keys[ii]].type == type)\n            {\n                if (tray[keys[ii]].action == actionType)\n                {\n                    actionArray.push(tray[keys[ii]]);\n                }\n            }\n        }\n    }\n    return actionArray;\n}\nfunction scalarAlarmScan(tray, actionType)\n{\n    var alarmFlag = false;\n    var actionArray = getActionArray(tray, 'scalar', actionType);\n    if (actionArray.length > 0)\n    {\n        for (var ii = 0; ii < actionArray.length; ++ii)\n        {\n            let oldAlarmValue = actionArray[ii].alarm.value;\n            actionArray[ii].alarm.value = 0;\n            if (!isNaN(actionArray[ii].value))\n            {\n                if (actionArray[ii].value <= actionArray[ii].alarm.limits.low)  actionArray[ii].alarm.value = 1;\n                if (actionArray[ii].value <= actionArray[ii].alarm.limits.lolo) actionArray[ii].alarm.value = 3;\n                if (actionArray[ii].value >= actionArray[ii].alarm.limits.high) actionArray[ii].alarm.value = 2;\n                if (actionArray[ii].value >= actionArray[ii].alarm.limits.hihi) actionArray[ii].alarm.value = 4;\n                if (actionArray[ii].alarm.value != oldAlarmValue) alarmFlag = true;\n            }\n        }\n    }\n    return alarmFlag;\n}\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\ncontext.set('lastAlarm', -1);",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 960,
+        "wires": [
+            [
+                "bd59ed153526b94a"
+            ]
+        ]
+    },
+    {
+        "id": "461b2f08f5e4f4ba",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Request tray from Database",
+        "func": "let tray = flow.get('tray');\nif (tray != null) return [null,null];\nlet trayProps  = flow.get('trayProps');\nnode.warn(\"Asking for tray from database\");\nvar newMsg =\n{\n    topic: trayProps.box + '/tray/' + trayProps.type + '/' + trayProps.name + '/echo',\n    payload: JSON.stringify({ topic: trayProps.box + '/tray/' + trayProps.type + '/' + trayProps.name + '/setting/echo' })\n};\nreturn [{ topic: \"getTrayProps\", payload: true }, newMsg];  \n",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 100,
+        "wires": [
+            [
+                "a91ceff75d960313"
+            ],
+            [
+                "961510dc1e7a036a"
+            ]
+        ]
+    },
+    {
+        "id": "a91ceff75d960313",
+        "type": "delay",
+        "z": "7cbe116050851432",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "30",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1100,
+        "y": 100,
+        "wires": [
+            [
+                "0d7a971d3b3d078d"
+            ]
+        ]
+    },
+    {
+        "id": "0d7a971d3b3d078d",
+        "type": "link out",
+        "z": "7cbe116050851432",
+        "name": "check for tray defined out",
+        "mode": "link",
+        "links": [
+            "226356ea922f47c6"
+        ],
+        "x": 1205,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "226356ea922f47c6",
+        "type": "link in",
+        "z": "7cbe116050851432",
+        "name": "check for tray defined in",
+        "links": [
+            "0d7a971d3b3d078d"
+        ],
+        "x": 725,
+        "y": 40,
+        "wires": [
+            [
+                "461b2f08f5e4f4ba"
+            ]
+        ]
+    },
+    {
+        "id": "81831015c91a5f28",
+        "type": "mqtt out",
+        "z": "7cbe116050851432",
+        "name": "Publish Readings",
+        "topic": "",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "79250bf3.365cc4",
+        "x": 1510,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "aeb11c4b0eca0c4a",
+        "type": "mqtt in",
+        "z": "7cbe116050851432",
+        "name": "Subscribe Settings",
+        "topic": "",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "79250bf3.365cc4",
+        "nl": false,
+        "rap": false,
+        "inputs": 1,
+        "x": 150,
+        "y": 300,
+        "wires": [
+            [
+                "b15d260b572e07f4"
+            ]
+        ]
+    },
+    {
+        "id": "5de5dfce91a29ad6",
+        "type": "mqtt out",
+        "z": "7cbe116050851432",
+        "name": "Publish Archive",
+        "topic": "",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "79250bf3.365cc4",
+        "x": 780,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "8ae00ce2e8187ccd",
+        "type": "link out",
+        "z": "7cbe116050851432",
+        "name": "Create Setting out",
+        "mode": "link",
+        "links": [
+            "f39fb963c816d17d"
+        ],
+        "x": 1055,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "6c29d83d29cb0f0b",
+        "type": "link out",
+        "z": "7cbe116050851432",
+        "name": "trayControl Out",
+        "mode": "link",
+        "links": [
+            "f5153c8898e1a608"
+        ],
+        "x": 1055,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f5153c8898e1a608",
+        "type": "link in",
+        "z": "7cbe116050851432",
+        "name": "trayControl In",
+        "links": [
+            "6c29d83d29cb0f0b",
+            "961510dc1e7a036a"
+        ],
+        "x": 1335,
+        "y": 240,
+        "wires": [
+            [
+                "81831015c91a5f28"
+            ]
+        ]
+    },
+    {
+        "id": "e90864c178e3c08e",
+        "type": "link in",
+        "z": "7cbe116050851432",
+        "name": "Publish Tray In",
+        "links": [
+            "bd59ed153526b94a",
+            "71df6ca08438be25",
+            "8f466a48843f0a7f",
+            "bd491678f8e24259",
+            "974629da19a525ea"
+        ],
+        "x": 1155,
+        "y": 300,
+        "wires": [
+            [
+                "719cafd457722095"
+            ]
+        ]
+    },
+    {
+        "id": "bd59ed153526b94a",
+        "type": "link out",
+        "z": "7cbe116050851432",
+        "name": "alarm scan out",
+        "mode": "link",
+        "links": [
+            "e90864c178e3c08e"
+        ],
+        "x": 1315,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "71df6ca08438be25",
+        "type": "link out",
+        "z": "7cbe116050851432",
+        "name": "create normal setting out",
+        "mode": "link",
+        "links": [
+            "e90864c178e3c08e"
+        ],
+        "x": 1055,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "8f466a48843f0a7f",
+        "type": "link out",
+        "z": "7cbe116050851432",
+        "name": "save config out",
+        "mode": "link",
+        "links": [
+            "e90864c178e3c08e"
+        ],
+        "x": 1055,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "bd491678f8e24259",
+        "type": "link out",
+        "z": "7cbe116050851432",
+        "name": "ping out",
+        "mode": "link",
+        "links": [
+            "e90864c178e3c08e"
+        ],
+        "x": 1055,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4cedc086c72eda01",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "prep ping",
+        "func": "return {topic:'newData', payload:true};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 320,
+        "wires": [
+            [
+                "bd491678f8e24259"
+            ]
+        ]
+    },
+    {
+        "id": "e6028ca70b6042d8",
+        "type": "link out",
+        "z": "7cbe116050851432",
+        "name": "save tray config out",
+        "mode": "link",
+        "links": [
+            "21ead1f81b53e80b"
+        ],
+        "x": 1055,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "21ead1f81b53e80b",
+        "type": "link in",
+        "z": "7cbe116050851432",
+        "name": "setting switch in",
+        "links": [
+            "e6028ca70b6042d8"
+        ],
+        "x": 585,
+        "y": 380,
+        "wires": [
+            [
+                "ffa001cd11b3750b"
+            ]
+        ]
+    },
+    {
+        "id": "961510dc1e7a036a",
+        "type": "link out",
+        "z": "7cbe116050851432",
+        "name": "reload trays out",
+        "mode": "link",
+        "links": [
+            "f5153c8898e1a608"
+        ],
+        "x": 1045,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "a1ac9e631b1c38ed",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "MQTT subscribe topic",
+        "func": "let subscribeTopic = flow.get('trayProps').box + \"/tray/\" + flow.get('trayProps').type +'/' + flow.get('trayProps').name + \"/setting/#\";\nreturn {action:\"subscribe\",topic:subscribeTopic};",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 160,
+        "y": 240,
+        "wires": [
+            [
+                "aeb11c4b0eca0c4a"
+            ]
+        ]
+    },
+    {
+        "id": "4d6715a3cd96c25c",
+        "type": "delay",
+        "z": "7cbe116050851432",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 560,
+        "y": 100,
+        "wires": [
+            [
+                "461b2f08f5e4f4ba"
+            ]
+        ]
+    },
+    {
+        "id": "8561feca2e4f6809",
+        "type": "debug",
+        "z": "7cbe116050851432",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "082009cfb3946239",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "zero",
+        "func": "var bufsize = 4;\nvar buffer = new ArrayBuffer(bufsize);\nvar settingsView = new DataView(buffer);\nlet str = \"zero\"\nsettingsView.setUint8(0, Number(str.charCodeAt(0))); \nsettingsView.setUint8(1, Number(str.charCodeAt(1))); \nsettingsView.setUint8(2, Number(str.charCodeAt(2))); \nsettingsView.setUint8(3, Number(str.charCodeAt(3))); \nreturn {topic:'setting',payload:Buffer.from(buffer)};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 1700,
+        "wires": [
+            [
+                "1e6c118ecf5d6f90"
+            ]
+        ]
+    },
+    {
+        "id": "55388474c4555e12",
+        "type": "inject",
+        "z": "7cbe116050851432",
+        "name": "ZERO",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 1700,
+        "wires": [
+            [
+                "082009cfb3946239"
+            ]
+        ]
+    },
+    {
+        "id": "1e6c118ecf5d6f90",
+        "type": "serial request",
+        "z": "7cbe116050851432",
+        "name": "MotorController1",
+        "serial": "68ce56881633a50a",
+        "x": 530,
+        "y": 1700,
+        "wires": [
+            [
+                "f7ada7c66da6f3d9"
+            ]
+        ]
+    },
+    {
+        "id": "f7ada7c66da6f3d9",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Check zero",
+        "func": "let command = String.fromCharCode(msg.payload[0], msg.payload[1], msg.payload[2], msg.payload[3]);\nreturn {topic: \"zero\", payload:command};\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 1700,
+        "wires": [
+            [
+                "8561feca2e4f6809"
+            ]
+        ]
+    },
+    {
+        "id": "78f03301ca438810",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Check zero",
+        "func": "let command = String.fromCharCode(msg.payload[0], msg.payload[1], msg.payload[2], msg.payload[3]);\nreturn {topic: \"zero\", payload:command};\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 1400,
+        "wires": [
+            [
+                "7a97d7a78b4c2231"
+            ]
+        ]
+    },
+    {
+        "id": "7a97d7a78b4c2231",
+        "type": "debug",
+        "z": "7cbe116050851432",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "b085f35d38782520",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "zero",
+        "func": "var bufsize = 4;\nvar buffer = new ArrayBuffer(bufsize);\nvar settingsView = new DataView(buffer);\nlet str = \"zero\"\nsettingsView.setUint8(0, Number(str.charCodeAt(0))); \nsettingsView.setUint8(1, Number(str.charCodeAt(1))); \nsettingsView.setUint8(2, Number(str.charCodeAt(2))); \nsettingsView.setUint8(3, Number(str.charCodeAt(3))); \nreturn {topic:'setting',payload:Buffer.from(buffer)};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 1400,
+        "wires": [
+            [
+                "b2cd4fc60eabc320"
+            ]
+        ]
+    },
+    {
+        "id": "771f0277b4a27cc7",
+        "type": "inject",
+        "z": "7cbe116050851432",
+        "name": "ZERO",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 1400,
+        "wires": [
+            [
+                "b085f35d38782520"
+            ]
+        ]
+    },
+    {
+        "id": "b2cd4fc60eabc320",
+        "type": "serial request",
+        "z": "7cbe116050851432",
+        "name": "MotorController0",
+        "serial": "f42e48bf7ff6d0dd",
+        "x": 530,
+        "y": 1400,
+        "wires": [
+            [
+                "78f03301ca438810"
+            ]
+        ]
+    },
+    {
+        "id": "99f528c346c9ea7b",
+        "type": "inject",
+        "z": "7cbe116050851432",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "8",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 960,
+        "wires": [
+            [
+                "9f673c161f8e2862"
+            ]
+        ]
+    },
+    {
+        "id": "9f673c161f8e2862",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "gpos0",
+        "func": "if (flow.get('settingInProgress')) return null;\nvar bufsize = 4;\nvar buffer = new ArrayBuffer(bufsize);\nvar settingsView = new DataView(buffer);\nlet str = \"gpos\"\nsettingsView.setUint8(0, Number(str.charCodeAt(0))); \nsettingsView.setUint8(1, Number(str.charCodeAt(1))); \nsettingsView.setUint8(2, Number(str.charCodeAt(2))); \nsettingsView.setUint8(3, Number(str.charCodeAt(3))); \nreturn {topic:'setting',payload:Buffer.from(buffer)};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 960,
+        "wires": [
+            [
+                "c0c7ac900dd9b911"
+            ]
+        ]
+    },
+    {
+        "id": "c0c7ac900dd9b911",
+        "type": "serial request",
+        "z": "7cbe116050851432",
+        "name": "MotorController0",
+        "serial": "f42e48bf7ff6d0dd",
+        "x": 450,
+        "y": 960,
+        "wires": [
+            [
+                "fadb13b4ad14774d"
+            ]
+        ]
+    },
+    {
+        "id": "fadb13b4ad14774d",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "check gpos0",
+        "func": "if (flow.get('settingInProgress')) return null;\nlet tray = flow.get('tray');\nif (tray == null) return null;\nlet command = String.fromCharCode(msg.payload[0], msg.payload[1], msg.payload[2], msg.payload[3]);\nlet stateView  = new DataView(new ArrayBuffer(14));\nlet response = {cmd:command};\nif (command != \"gpos\")\n{\n    node.warn(\"Error in gpos0 read: \" + command);\n    return null;\n}\nfor (let ii = 0; ii < 14; ++ii)\n{\n    stateView.setUint8(ii,msg.payload[ii + 4]);\n}\ntray.pos0.value = stateView.getInt32(0,true);\ntray.upos0.value = stateView.getInt16(4,true);\ntray.encpos0.value = Number(stateView.getBigInt64(6,true));\n\nvar bufsize = 4;\nvar buffer = new ArrayBuffer(bufsize);\nvar settingsView = new DataView(buffer);\nlet str = \"gpos\"\nsettingsView.setUint8(0, Number(str.charCodeAt(0))); \nsettingsView.setUint8(1, Number(str.charCodeAt(1))); \nsettingsView.setUint8(2, Number(str.charCodeAt(2))); \nsettingsView.setUint8(3, Number(str.charCodeAt(3))); \nreturn {topic:'setting',payload:Buffer.from(buffer)};\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 960,
+        "wires": [
+            [
+                "6887510f023b9b23"
+            ]
+        ]
+    },
+    {
+        "id": "6887510f023b9b23",
+        "type": "serial request",
+        "z": "7cbe116050851432",
+        "name": "MotorController1",
+        "serial": "68ce56881633a50a",
+        "x": 810,
+        "y": 960,
+        "wires": [
+            [
+                "253a2510aeb038c3"
+            ]
+        ]
+    },
+    {
+        "id": "253a2510aeb038c3",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "check gpos1",
+        "func": "let tray = flow.get('tray');\nif (tray == null) return null;\nlet command = String.fromCharCode(msg.payload[0], msg.payload[1], msg.payload[2], msg.payload[3]);\nlet stateView  = new DataView(new ArrayBuffer(14));\nlet response = {cmd:command};\nif (command != \"gpos\")\n{\n    node.warn(\"Error in gpos1 read: \" + command);\n    return null;\n}\nfor (let ii = 0; ii < 14; ++ii)\n{\n    stateView.setUint8(ii,msg.payload[ii + 4]);\n}\ntray.pos1.value = stateView.getInt32(0,true);\ntray.upos1.value = stateView.getInt16(4,true);\ntray.encpos1.value = Number(stateView.getBigInt64(6,true));\n\ntray.timeStamp = new Date().getTime();\ntray.watchdog.value = tray.watchdog.value + 1;\nif (tray.watchdog.value > 32765) tray.watchdog.value = 0;\n\nreturn {topic:'newReading', payload:true};\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 960,
+        "wires": [
+            [
+                "2c81c8b5ebd1f7e6"
+            ]
+        ]
+    },
+    {
+        "id": "2c21f72a1646438b",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Setting InProgress",
+        "func": "if (msg.payload == 0) return null;\nif (flow.get('tray') == null) return null;\n\nflow.set('settingInProgress',true);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 740,
+        "wires": [
+            [
+                "8ae9706e8eba1a1a"
+            ]
+        ]
+    },
+    {
+        "id": "f39fb963c816d17d",
+        "type": "link in",
+        "z": "7cbe116050851432",
+        "name": "BlinkyBus Setting In",
+        "links": [
+            "892b22b7b28322db",
+            "8ae00ce2e8187ccd"
+        ],
+        "x": 75,
+        "y": 740,
+        "wires": [
+            [
+                "2c21f72a1646438b"
+            ]
+        ]
+    },
+    {
+        "id": "8ae9706e8eba1a1a",
+        "type": "switch",
+        "z": "7cbe116050851432",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "movr0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "movr1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "zero0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "zero1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 370,
+        "y": 740,
+        "wires": [
+            [
+                "6065e374cb235eae"
+            ],
+            [
+                "ca65a26e3627994f"
+            ],
+            [
+                "b4fe909bc9dc8344"
+            ],
+            [
+                "bb7b872c4d301ce5"
+            ]
+        ]
+    },
+    {
+        "id": "6065e374cb235eae",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "movr",
+        "func": "let tray = flow.get('tray');\nvar bufsize = 18;\nvar buffer = new ArrayBuffer(bufsize);\nvar settingsView = new DataView(buffer);\nlet str = \"movr\"\nsettingsView.setUint8(0, Number(str.charCodeAt(0))); \nsettingsView.setUint8(1, Number(str.charCodeAt(1))); \nsettingsView.setUint8(2, Number(str.charCodeAt(2))); \nsettingsView.setUint8(3, Number(str.charCodeAt(3))); \nsettingsView.setInt32(4, Math.round(tray.mpos0.value * tray.movr0.value), true); \nsettingsView.setInt16(8, Math.round(tray.mupos0.value * tray.movr0.value), true); \nsettingsView.setUint8(10, 0);\nsettingsView.setUint8(11, 0);\nsettingsView.setUint8(12, 0);\nsettingsView.setUint8(13, 0);\nsettingsView.setUint8(14, 0);\nsettingsView.setUint8(15, 0);\nsettingsView.setUint8(16, 0);\nsettingsView.setUint8(17, 0);\nlet allData = Buffer.from(buffer);\nlet valueData = [];\nfor (let ii = 0; ii < 12; ++ii) valueData.push(allData[ii + 4]);\nlet crcVal = crcCalc(valueData);\nsettingsView.setUint16(16, crcVal, true);\nreturn {topic:'setting',payload:Buffer.from(buffer)};\n\n\nfunction crcCalc(pbuf)\n{\n    let n = pbuf.length;\n    let crc = 0xffff;\n    for(let i = 0; i < n; i++)\n    {\n        crc = crc ^ pbuf[i];\n        for(let j = 0; j < 8; j++)\n        {\n            let a = crc;\n            let carry_flag = a & 0x0001;\n            crc = crc >> 1;\n            if ( carry_flag == 1 ) crc = crc ^ 0xa001;\n        }\n    }\n    return crc;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 660,
+        "wires": [
+            [
+                "833bd2476ee26763"
+            ]
+        ]
+    },
+    {
+        "id": "833bd2476ee26763",
+        "type": "serial request",
+        "z": "7cbe116050851432",
+        "name": "MotorController0",
+        "serial": "f42e48bf7ff6d0dd",
+        "x": 670,
+        "y": 660,
+        "wires": [
+            [
+                "57fe11c5335cd734"
+            ]
+        ]
+    },
+    {
+        "id": "57fe11c5335cd734",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Check movr",
+        "func": "let command = String.fromCharCode(msg.payload[0], msg.payload[1], msg.payload[2], msg.payload[3]);\nif (command != \"movr\")\n{\n    node.warn(\"Error in movr0 write: \" + command);\n}\nflow.set('settingInProgress',false);\nflow.get('tray').movr0.value = 0;\nreturn null;\n\n",
+        "outputs": 0,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "ca65a26e3627994f",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "movr",
+        "func": "let tray = flow.get('tray');\nvar bufsize = 18;\nvar buffer = new ArrayBuffer(bufsize);\nvar settingsView = new DataView(buffer);\nlet str = \"movr\"\nsettingsView.setUint8(0, Number(str.charCodeAt(0))); \nsettingsView.setUint8(1, Number(str.charCodeAt(1))); \nsettingsView.setUint8(2, Number(str.charCodeAt(2))); \nsettingsView.setUint8(3, Number(str.charCodeAt(3))); \nsettingsView.setInt32(4, Math.round(tray.mpos1.value * tray.movr1.value), true); \nsettingsView.setInt16(8, Math.round(tray.mupos1.value * tray.movr1.value), true); \nsettingsView.setUint8(10, 0);\nsettingsView.setUint8(11, 0);\nsettingsView.setUint8(12, 0);\nsettingsView.setUint8(13, 0);\nsettingsView.setUint8(14, 0);\nsettingsView.setUint8(15, 0);\nsettingsView.setUint8(16, 0);\nsettingsView.setUint8(17, 0);\nlet allData = Buffer.from(buffer);\nlet valueData = [];\nfor (let ii = 0; ii < 12; ++ii) valueData.push(allData[ii + 4]);\nlet crcVal = crcCalc(valueData);\nsettingsView.setUint16(16, crcVal, true);\nreturn {topic:'setting',payload:Buffer.from(buffer)};\n\n\nfunction crcCalc(pbuf)\n{\n    let n = pbuf.length;\n    let crc = 0xffff;\n    for(let i = 0; i < n; i++)\n    {\n        crc = crc ^ pbuf[i];\n        for(let j = 0; j < 8; j++)\n        {\n            let a = crc;\n            let carry_flag = a & 0x0001;\n            crc = crc >> 1;\n            if ( carry_flag == 1 ) crc = crc ^ 0xa001;\n        }\n    }\n    return crc;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 720,
+        "wires": [
+            [
+                "09ba120af3425860"
+            ]
+        ]
+    },
+    {
+        "id": "42c3b40627db1a9c",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Check movr",
+        "func": "let command = String.fromCharCode(msg.payload[0], msg.payload[1], msg.payload[2], msg.payload[3]);\nif (command != \"movr\")\n{\n    node.warn(\"Error in movr1 write: \" + command);\n}\nflow.set('settingInProgress',false);\nflow.get('tray').movr1.value = 0;\nreturn null;\n\n",
+        "outputs": 0,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "09ba120af3425860",
+        "type": "serial request",
+        "z": "7cbe116050851432",
+        "name": "MotorController1",
+        "serial": "68ce56881633a50a",
+        "x": 670,
+        "y": 720,
+        "wires": [
+            [
+                "42c3b40627db1a9c"
+            ]
+        ]
+    },
+    {
+        "id": "1b7ceff1aec95c0a",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Check zero",
+        "func": "let command = String.fromCharCode(msg.payload[0], msg.payload[1], msg.payload[2], msg.payload[3]);\nif (command != \"zero\")\n{\n    node.warn(\"Error in zero0 write: \" + command);\n}\nflow.set('settingInProgress',false);\nflow.get('tray').zero0.value = 0;\nreturn null;\n\n",
+        "outputs": 0,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "b4fe909bc9dc8344",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "zero",
+        "func": "var bufsize = 4;\nvar buffer = new ArrayBuffer(bufsize);\nvar settingsView = new DataView(buffer);\nlet str = \"zero\"\nsettingsView.setUint8(0, Number(str.charCodeAt(0))); \nsettingsView.setUint8(1, Number(str.charCodeAt(1))); \nsettingsView.setUint8(2, Number(str.charCodeAt(2))); \nsettingsView.setUint8(3, Number(str.charCodeAt(3))); \nreturn {topic:'setting',payload:Buffer.from(buffer)};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 780,
+        "wires": [
+            [
+                "3e6343f1b8139ee2"
+            ]
+        ]
+    },
+    {
+        "id": "3e6343f1b8139ee2",
+        "type": "serial request",
+        "z": "7cbe116050851432",
+        "name": "MotorController0",
+        "serial": "f42e48bf7ff6d0dd",
+        "x": 670,
+        "y": 780,
+        "wires": [
+            [
+                "1b7ceff1aec95c0a"
+            ]
+        ]
+    },
+    {
+        "id": "b1b14c399747dbaa",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "Check zero",
+        "func": "let command = String.fromCharCode(msg.payload[0], msg.payload[1], msg.payload[2], msg.payload[3]);\nif (command != \"zero\")\n{\n    node.warn(\"Error in zero1 write: \" + command);\n}\nflow.set('settingInProgress',false);\nflow.get('tray').zero1.value = 0;\nreturn null;\n\n",
+        "outputs": 0,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "bb7b872c4d301ce5",
+        "type": "function",
+        "z": "7cbe116050851432",
+        "name": "zero",
+        "func": "var bufsize = 4;\nvar buffer = new ArrayBuffer(bufsize);\nvar settingsView = new DataView(buffer);\nlet str = \"zero\"\nsettingsView.setUint8(0, Number(str.charCodeAt(0))); \nsettingsView.setUint8(1, Number(str.charCodeAt(1))); \nsettingsView.setUint8(2, Number(str.charCodeAt(2))); \nsettingsView.setUint8(3, Number(str.charCodeAt(3))); \nreturn {topic:'setting',payload:Buffer.from(buffer)};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 840,
+        "wires": [
+            [
+                "3ac6ef333588f363"
+            ]
+        ]
+    },
+    {
+        "id": "3ac6ef333588f363",
+        "type": "serial request",
+        "z": "7cbe116050851432",
+        "name": "MotorController1",
+        "serial": "68ce56881633a50a",
+        "x": 670,
+        "y": 840,
+        "wires": [
+            [
+                "b1b14c399747dbaa"
             ]
         ]
     }
